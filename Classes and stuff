@@ -1,6 +1,9 @@
 //luokat yms tieto
 
 
+
+
+
 //"Hahmo" on joku pelin liikkuvista olioista, pelaaja tai mobi.
 //Hahmo ---------------------------------------------------------------
 class Hahmo {
@@ -9,38 +12,65 @@ class Hahmo {
   float ypos;
   float xspeed;
   float yspeed;
+  float grav;//hahmokoht painovoimalisä
   
-  Hahmo(color c_,float xpos_,float ypos_,float xspeed_,float yspeed_) {  //"constructor"
+  Hahmo(color c_,float xpos_,float ypos_,float xspeed_,float yspeed_,float grav_) {  //"constructor"
     c=c_;
     xpos=xpos_;
     ypos=ypos_;
     xspeed=xspeed_;
     yspeed=yspeed_;
-    
-    
-    
+    grav=grav_;
   }//constructor END
   
-  void display() {
+   //Näkyvyys ja painovoima
+   
+  void display() {           
     rectMode(CENTER);
     fill(1);
     rect(xpos,ypos,10,10);
-  }
   
-  void jump() {       //lisää sääntö maassa olemiselle
-     yspeed=yspeed-1;
+    //xspeed palautus nollaan?
+    if(keyPressed){            
+      if(key=='w'||key=='W'){
+        mursuHahmo.jump();
+      }    
+    }else{
+      if(ypos>=height-(10+5)){//pohjan varmistus eli kentälle palautus :D
+        yspeed=0;
+        grav=0;
+        ypos=height-(10+5);
+        }else{yspeed=yspeed+grav+1;//painovoima
+        }
+      
+    }
+    xpos=xpos+xspeed;
+    ypos=ypos+yspeed;
+    
+    //if(xpos<){
+    //}
+  }
+    
+   //HYPPY
+   
+  void jump() {               
+     yspeed=-5;
      ypos=ypos+yspeed; 
-     if(yspeed<-5){
-      yspeed=+1;
-     }
+     
   }  
   
-  void walk() {
+   //kävely
+   
+  void walk() {               
     xpos=xpos+xspeed;
   }
 }
 
 //Hahmo end ---------------------------------------------------------------
+
+
+
+
 
 
 //"Maa" on asia, jonka läpi ei voi kulkea, eg. lattia tahi katto. 
