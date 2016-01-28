@@ -1,17 +1,17 @@
 /*
+/*
 0.1: 
 added class for maa:
-  test grafix
-  position
-  size
       created ground
 
 added class for Hahmo:
-  test graphics 
   ability to "jump", as in moving upwards when "W" is pressed (stays then there)
 
-
-
+0.1.2
+  created gravity for "beings" (turns off when jumping)
+  added safetynet to height-15 to prevent falling off the world, stops all positive Y-axis movement
+!jump probably makes every single "Hahmo" jump when "W" is pressed, fix it!
+-> move functions under "jump()"
 
 
 
