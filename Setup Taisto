@@ -1,6 +1,7 @@
 /*Tsuchimursu's 3rd programming excercise.
-*Started on 28.1.2016.
-*Plan: create a 2d game from scratch to learn how to create and use classes.*/
+*Started 28.1.2016.
+*Plan: create a 2d game from scratch to learn how to create and use classes.
+*/
 
 
 
@@ -10,5 +11,5 @@ Hahmo mursuHahmo;
 void setup(){
   size(1800,300);
   pohjanMaa = new Maa(color(100,200,70),0,height-10,width,10);
-  mursuHahmo = new Hahmo(color(200,0,0),30,height-30,0,0);
+  mursuHahmo = new Hahmo(color(200,0,0),30,height-30,0,0,0);
 }
