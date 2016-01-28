@@ -2,11 +2,7 @@ void draw(){
   background(50,50,300);
   pohjanMaa.display();
   mursuHahmo.display();
-   if(keyPressed){
-     if(key=='w'||key=='W'){
-       mursuHahmo.jump();
-     }    
-   }
+
 
 
 
